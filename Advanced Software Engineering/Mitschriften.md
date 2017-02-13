@@ -3,7 +3,12 @@
 [TOC]
 
 ## Programmierprinzipien
-	* SOLID
+
+### ToDo
+
+- [ ] Ergänze fehlende Prinzipien
+- [ ] Füge Graphen hinzu
+- [ ] Erkläre kurz
 
 ### Single Responsibility
 
@@ -45,5 +50,14 @@ Abstraktionen : nicht von Details abhängig, Details abhängig von Abstraktion
 ### Kiss (Keep it simple, stupid)
 Herkunft in der US Navy 1960
 * einfache Systeme arbeiten am besten
-* 
+* Komplexität unter allen Umständen vermeiden
+* Linux Arch
 
+### SLAP (Single Level of Abstraction Principle)
+* Prinzip des einfachen Abstraktionsniveau
+
+* keine Vermischung von Arbeit und Delegation
+
+* keine Vermischung von DB und Businesslogik
+
+* Fördert Wiederverwendbarkeit
