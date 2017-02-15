@@ -55,9 +55,37 @@ Herkunft in der US Navy 1960
 
 ### SLAP (Single Level of Abstraction Principle)
 * Prinzip des einfachen Abstraktionsniveau
-
 * keine Vermischung von Arbeit und Delegation
-
 * keine Vermischung von DB und Businesslogik
-
 * Fördert Wiederverwendbarkeit
+
+### GRASP
+
+### Low Coupling
+Die Abhängigkeiten verringern, um das eigene Paket von der Landschaft "abzukoppeln"
+> Koppelung ist der Maß von Abhängigkeiten von Paketen und Objekten
+
+Effekte:
+* geringe Abhängigkeiten zu Änderungen in anderen Teilen
+* einfacher testbar
+* verständlicher, da weniger Kontext notwendig ist
+* einfacher wiederverwendbar
+
+### High Cohesion
+Kohäsion ist ein Maß für die Zusammenhalt einer Klasse. Hohe Kohäsion und lose Kopplung als Fundament für idealen Code.
+
+### Information Expert
+Kapselung von Informationen
+Leichtere Klassen, da Businesslogik zu den Daten verteilt wird
+
+### Indirection
+
+###DRY (Don’t Repeat Yourself ! )
+* wiederhole dich nicht
+* Anwendbar:
+	* Datenbankschema
+	* Testpläne
+	* Buildsystem
+	* Dokumentation
+* Gegenteil: 
+	* WETYAGNI (You ain’t gonna need it)du wirst es nicht brauchen
