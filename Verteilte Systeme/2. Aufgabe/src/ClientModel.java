@@ -13,8 +13,7 @@ public class ClientModel extends UnicastRemoteObject implements RMIEventListener
     private Thread clockThread;
     private UIListener listener;
 
-    protected ClientModel(String host, Integer port, UIListener listener) throws Exception{
-        connect(host,port);
+    protected ClientModel(UIListener listener) throws Exception{
         this.listener = listener;
     }
 
@@ -26,14 +25,14 @@ public class ClientModel extends UnicastRemoteObject implements RMIEventListener
         return serverTime;
     }
 
-    public void connect(String host, Integer port) throws Exception{
+    public void connect(String host, Integer port, String RMIName) throws Exception{
         System.out.println("Client starting");
 
         // Now, find the server, and register with it
         System.out.println("Finding server");
 
         Registry registry = LocateRegistry.getRegistry(host,port);
-        this.server = (RMIInterface) registry.lookup("RMIServer");
+        this.server = (RMIInterface) registry.lookup(RMIName);
 
         // This should cause the server to call us back.
         System.out.println("Connecting to server");
@@ -87,9 +86,10 @@ public class ClientModel extends UnicastRemoteObject implements RMIEventListener
             try {
                 this.serverTime = this.server.getDateAndTime();
                 this.listener.shouldRefreshUI();
-                Thread.sleep(2000);
+                Thread.sleep(1000);
 
             } catch (Exception e) {
+                this.running = false;
                 System.out.println("Couldn't retrieve time");
             }
         }

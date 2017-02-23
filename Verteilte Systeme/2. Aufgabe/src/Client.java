@@ -21,23 +21,17 @@ public class Client extends JFrame implements ActionListener, UIListener {
     public Client() throws Exception{
         super("RMI Client");
         buildUI();
-        initDataBinding();
+        //initDataBinding();
     }
 
     public static void main(String args[]) throws Exception {
-        new Client();
+        Client client = new Client();
+        new LoginDialog(client);
     }
 
     private void buildUI(){
         //Close Connection
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Closing client connection");
-            try {
-                this.model.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }));
+        Runtime.getRuntime().addShutdownHook(new Thread(this::closeDataBinding));
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setTitle("Data Bindings Demo");
@@ -105,20 +99,21 @@ public class Client extends JFrame implements ActionListener, UIListener {
         this.setVisible(true);
     }
 
-    public void exitProcedure() {
+    public void initDataBinding(String host, Integer port, Client client, String RMIName){
+        try {
+            this.model = new ClientModel(client);
+            this.model.connect(host, port, RMIName);
+        } catch (Exception e) {
+            System.out.println("Could not connect ;(");
+        }
+    }
+
+    public void closeDataBinding(){
+        System.out.println("Closing client connection");
         try {
             this.model.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        System.exit(0);
-    }
-
-    private void initDataBinding(){
-        try {
-            this.model = new ClientModel("localhost", 7575, this);
-        } catch (Exception e) {
-            System.out.println("Could not connect ;(");
         }
     }
 
@@ -133,25 +128,30 @@ public class Client extends JFrame implements ActionListener, UIListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            this.refreshTable();
 
         }
 
         if (ae.getSource() == this.refreshBtn){
-            ArrayList<Event> futureEvents = null;
-            try {
-                futureEvents = this.model.getFutureEvents();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Object[][] data = new Object[futureEvents.size()][];
-            for (int i = 0; i < futureEvents.size(); i++){
-                Event row = futureEvents.get(i);
-                data[i] = new Object[]{row.getDateTime().toString(), row.getDescription()};
-
-            }
-            this.eventTable.setModel(new DefaultTableModel(data,new Object[]{"Date", "Desc"}));
-            this.eventTable.repaint();
+            this.refreshTable();
         }
+    }
+
+    public void refreshTable() {
+        ArrayList<Event> futureEvents = null;
+        try {
+            futureEvents = this.model.getFutureEvents();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Object[][] data = new Object[futureEvents.size()][];
+        for (int i = 0; i < futureEvents.size(); i++){
+            Event row = futureEvents.get(i);
+            data[i] = new Object[]{row.getDateTime().toString(), row.getDescription()};
+
+        }
+        this.eventTable.setModel(new DefaultTableModel(data,new Object[]{"Date", "Desc"}));
+        this.eventTable.repaint();
     }
 
     @Override
@@ -163,6 +163,8 @@ public class Client extends JFrame implements ActionListener, UIListener {
             log += event.toString() + "\n";
         }
         this.loggedEvents.setText(log);
+
+        this.refreshTable();
     }
 
     @Override

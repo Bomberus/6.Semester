@@ -57,13 +57,9 @@ public class TimeService implements RMIInterface{
     @Override
     public void addEvent(Event event){
         this.thread.interrupt();
-        this.r = null;
         this.events.add(event);
         Collections.sort(events);
         System.out.println("Got Event : "+ event.getDescription());
-        this.r = new EventThread(this);
-        this.thread = new Thread(r);
-        this.thread.start();
     }
 
     @Override
