@@ -79,12 +79,20 @@ public class LoginDialog extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.connectButton) {
-            this.client.initDataBinding(this.hostText.getText(), Integer.parseInt(this.portText.getText()), this.client, this.rmiText.getText());
-            this.statusLabel.setText("Connected");
+            if (this.client.initDataBinding(this.hostText.getText(), Integer.parseInt(this.portText.getText()), this.client, this.rmiText.getText())) {
+                this.statusLabel.setText("Connected");
+            }
+            else{
+                this.statusLabel.setText("Error while connecting");
+            }
         }
         if (e.getSource() == this.disconnectButton) {
-            this.client.closeDataBinding();
-            this.statusLabel.setText("Disconnected");
+            if (this.client.closeDataBinding()) {
+                this.statusLabel.setText("Disconnected");
+            }
+            else{
+                this.statusLabel.setText("Error while disconnecting");
+            }
         }
     }
 }

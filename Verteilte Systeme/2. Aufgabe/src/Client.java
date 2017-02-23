@@ -99,21 +99,26 @@ public class Client extends JFrame implements ActionListener, UIListener {
         this.setVisible(true);
     }
 
-    public void initDataBinding(String host, Integer port, Client client, String RMIName){
+    public boolean initDataBinding(String host, Integer port, Client client, String RMIName){
         try {
             this.model = new ClientModel(client);
             this.model.connect(host, port, RMIName);
+            return true;
         } catch (Exception e) {
+
             System.out.println("Could not connect ;(");
+            return false;
         }
     }
 
-    public void closeDataBinding(){
+    public boolean closeDataBinding(){
         System.out.println("Closing client connection");
         try {
             this.model.close();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
