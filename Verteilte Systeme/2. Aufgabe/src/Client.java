@@ -21,7 +21,6 @@ public class Client extends JFrame implements ActionListener, UIListener {
     public Client() throws Exception{
         super("RMI Client");
         buildUI();
-        //initDataBinding();
     }
 
     public static void main(String args[]) throws Exception {
@@ -103,6 +102,7 @@ public class Client extends JFrame implements ActionListener, UIListener {
         try {
             this.model = new ClientModel(client);
             this.model.connect(host, port, RMIName);
+            refreshTable();
             return true;
         } catch (Exception e) {
 
