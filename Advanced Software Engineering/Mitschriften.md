@@ -83,9 +83,36 @@ Leichtere Klassen, da Businesslogik zu den Daten verteilt wird
 ###DRY (Don’t Repeat Yourself ! )
 * wiederhole dich nicht
 * Anwendbar:
-	* Datenbankschema
-	* Testpläne
-	* Buildsystem
-	* Dokumentation
+* Datenbankschema
+* Testpläne
+* Buildsystem
+* Dokumentation
 * Gegenteil: 
-	* WETYAGNI (You ain’t gonna need it)du wirst es nicht brauchen
+* WETYAGNI (You ain’t gonna need it)du wirst es nicht brauchen
+
+## DevOps
+
+- eine **Bewegung** mit dem Ziel **Time-To-Market** einer **Änderungseinheit** zu reduzieren, bei gleichzeitiger Gewährleistung **hoher Qualität**
+- durch Anwendung des **Lean-Prinzip** auf den gesamten **Software-Wertstrom**
+
+### Lean
+
+**Philsophie**, mit Ziel, einen **Prozess** durch die **Eliminierung von Verschwendung kontinuierlich** zu verbessern und dabei die **Bedürfnisse der Kunden** als **Ausgangspunkt allen Handelns** sieht
+
+Verschwendung erkennen:
+
+- Materialbewegung
+- Bestände::
+- Bewegung
+- Wartezeiten
+- Verarbeitung
+- Überproduktion
+- Korrekturen und Fehler 
+
+Verschwendung beseitigen:
+
+Pull Prinzip:
+
+- es wird nur produziert:
+  - **was** der Kunde will
+  - **wenn** der Kunde es will

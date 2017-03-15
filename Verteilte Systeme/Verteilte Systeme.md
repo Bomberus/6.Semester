@@ -77,31 +77,67 @@
 - einheitlicher Datenbanktreiber, welcher eine API für verschiedene Datenbanksysteme bereitstellt
 - Datasource P 177 (entspricht Entitymanager ) Wo ist Datenquelle, wie kann ich es zugreifen?
 
-## JPA 
+## ORM 
 
 - Was entspricht beim ORM Mapping einer Klasse(Tabelle) ?
 
-* Was bewirkt persist
 
-* Welchen Vorteil haben Prepared Statements
+- Was bewirkt persist
 
-* Nennen Sie einen Fall, wo ein rollback sinnvoll ist
+- Welchen Vorteil haben Prepared Statements
 
-* Connection Pooling 226
+- Nennen Sie einen Fall, wo ein rollback sinnvoll ist
 
-  * Welche Verbindung hat get() close() (mit / ohne ConnectionPooling)
+- Connection Pooling 226
 
-* Dirty Reads
+  - Welche Verbindung hat get() close() (mit / ohne ConnectionPooling)
 
-  * Lesend auf eine Änderung zugreifen, welche nicht commited wurde
+- Dirty Reads
 
-* Non repeatable Reads
+  - Lesend auf eine Änderung zugreifen, welche nicht commited wurde
 
-  * Zweimal lesend auf den selben Datensatz wird zugegriffen
+- Non repeatable Reads
+
+  - Zweimal lesend auf den selben Datensatz wird zugegriffen
 
     => Änderungen verzögern, alte Daten zurückliefern
 
-* Phantom Reads
+- Phantom Reads
 
-  * Datensätze mit Filter 
-  * Alle Müller der DH, Menge der Datensätze verändern sich unter dem Filter, wenn der Datensätz geändert wird
+  - Datensätze mit Filter 
+  - Alle Müller der DH, Menge der Datensätze verändern sich unter dem Filter, wenn der Datensätz geändert wird
+  - Szenario : Wieviele Müller haben Gesamtstudio abgeschlossen?
+  - 2.Szenario : Wieviele Müller gibt es insgesamt
+
+## JPA 
+
+- Was bedeutet persistent? 
+- EntityManagerFactory => vergleichbar mit Datasource
+- man erzeugt die Instanz zu Beginn
+- Nach commit werden Objekte in den Peristentkontext abgelegt und mit Datenbank inhalt verglichen und synchronisiert (Batch Operationen)
+- Löschen:
+  - Wie kommt es zum löschen?
+  - Was bedeutet Persistente Identität und was hat das mit dem Primärschlüssel zu tun
+  - Zustände F280
+  - Detached Objekt, bei Attributänderung, keine Auswirkungen
+- Dirty reads ausgeschlossen
+- Phantom Reads nicht verhinderbar
+- Non repeatable Reads : @Version, dient für interne Verarbeitung
+- Lock-Modes angeben
+
+## JPQL
+
+- kein Detailwissen
+- 3 Arten von Befehlen
+- Standartisierte Sprache 
+
+## Beziehungen
+
+@OneToOne = kein Verweis auf andere Objekte, nur auf sich selbst
+
+## EJB
+
+- Wozu braucht man es ? Businesslogik 
+- JPA : Persistente Speicherung von Daten
+- Dependency Injection
+- Stateless
