@@ -1,17 +1,7 @@
-# Advanced Software Engineering 2
-
-[TOC]
-
 ## Programmierprinzipien
 
 - sind Leitfaden
 - Verantwortung festlegen
-
-### ToDo
-
-- [ ] Ergänze fehlende Prinzipien
-- [ ] Füge Graphen hinzu
-- [ ] Erkläre kurz
 
 ### Solid
 #### (S)ingle Responsibility
