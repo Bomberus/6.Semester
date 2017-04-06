@@ -74,3 +74,15 @@ Z - Zimmter
 
 * und säubert(j, Z) und existiert(Z) -> freuen(m)
 * -> saubert(j, Z)
+
+### Regelsysteme
+
+a(x):x Element von A, b(x):x Element von B, usw.
+
+R1 : a(x) -> b(x)
+
+R2: b(x), c(x) -> d(x)
+
+R3: a(x), c(x)  -> f(x)
+
+R4: a(x), e(x) -> f(x)

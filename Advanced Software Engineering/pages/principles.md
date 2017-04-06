@@ -161,35 +161,81 @@ Herkunft in der US Navy 1960
 * Fördert Wiederverwendbarkeit
 
 ### GRASP
-* General Responsibility Assignment Software Pattern
-* Low Representational Gap (LRG) klein halten:
-  * Lücke zwischen gedachten Domänenmodell und Softwareimplementierung
-* Zuweisung von Verantwortlichkeiten bzw. Zuständigkeiten
-* geringe Kopplung
-* Kopplung beschreibt die Beziehung zwischen Objekten (Maß für die Abhängigkeiten)
+- General Responisbility Assigment SW Patterns
+- Basis-Prinzipien auf denen Entwurfsmuster aufbauen
+- Low Representational Gap (LRG) minimieren
+  - Lücke zwischen Domänenmodell und Implementierung
+- Zuweisung von Zuständigkeiten (2 Typen: Ausführung, Wissen)
+#### Low Coupling
+  - Geringe Kopplung, Abhänigigkeit zw. Objekten
+  - Leichter änderbar, testbar, wiederverwendbar, verständlicher
+  - Bsp: Impl. von Interfaces, Vererbung, gemeinsame Dateien, Locks durch Threads
+#### High Cohesion
+- Zusammenhalt einer Klasse: Semantische Nähe der Elemente
+- Einfacher, verständlicher, wiedervendbarer
+- Schwer bestimmbar, ggf. durch Anzahl Verwendungen, Anzahl Attribute
+#### Information Expert
+- Zuweisung einer Zuständigkeit zu einem Objekt
+- Objekte sind zuständig für Aufgaben über die sie Informationen besitzen
+- Kapselung von Infos, leichtere Klassen <-> ggf. Problem mit anderen Prinzipien
+```plantuml
+@startuml
+Produkt -- WarenkorbElement
+Warenkorb -- WarenkorbElement
 
-Vorteile:
-* geringe Abhängigkeiten
-* einfach testbar
-* einfacher wiederverwendbar
-### Low Coupling
-Die Abhängigkeiten verringern, um das eigene Paket von der Landschaft "abzukoppeln"
-> Koppelung ist der Maß von Abhängigkeiten von Paketen und Objekten
+class Warenkorb{
+  - Elemente
+  + berechnePreis()
+}
 
-Effekte:
-* geringe Abhängigkeiten zu Änderungen in anderen Teilen
-* einfacher testbar
-* verständlicher, da weniger Kontext notwendig ist
-* einfacher wiederverwendbar
+class WarenkorbElement{
+  - Anzahl
+  + berechnePreis()
+}
 
-### High Cohesion
-Kohäsion ist ein Maß für die Zusammenhalt einer Klasse. Hohe Kohäsion und lose Kopplung als Fundament für idealen Code.
-
-### Information Expert
-Kapselung von Informationen
-Leichtere Klassen, da Businesslogik zu den Daten verteilt wird
-
-### Indirection
+class Produkt{
+  - Preis
+}
+@enduml
+```
+#### Creator
+- Wer ist für Erzeugung eines Obj. Zuständig?
+- Wenn das Objekt zu jedem erstellen Objekt eine Beziehung hat (z.B. Komposition,
+wenn a Teil von B ist [Raum, Haus])
+- Verringert Kopplung
+#### Indirection
+- Indirektion/Delegation, kann Syteme oder Teile voneinander entkoppeln
+- Mehr Freiheitsgerade als Vererbung
+- Komposition verschiedener Objekte möglich
+- Bsp: Objekt nutzen statt davon erben
+#### Polymorphism
+- Behandlung von Alternativen abhängig von einem konkreten Typ
+- Methoden erhalten je nach Typ andere Implementierung
+- Vermeidung von Fallunterscheidung
+- Abstrakte Klasse, Interface als Basistyp
+- Polymorphe Methodenaufrufe erst zur Laufzeit gebunden
+- -> Entwurfsmuster Strategie
+- Beispiel: Steuer-Interface, Deutschland, Frankreich-Klasse
+- Erweiterbar, bestehendes muss nicht geändert werden, extrahierung von
+Frameworks vereinfacht
+#### Controller
+- Verarbeitung von einkommenden Benutzereingaben
+- Koordination zwischen UI und Logik
+- Delegation zu anderen Objekten
+- Zustand der Anwendung kann in Controller gehalten werden
+- Arten
+  - System Controller: Controller für alle Aktionen
+  - Use Case Controller: Controller pro Use-Case,
+#### Pure Fabrication
+- Reine Erfindung, reine Verhaltens- / Arbeitsklasse ohne Bezug zur Domäne
+(möglichst selten!)
+- Trennung zw. Technik und Domäne
+- Wiederverwendbar, High Cohesion
+#### Protected Variations
+- Sicherung vor Variation
+- Kapselung versch. APIs hinter einheitlicher API
+- Polymorphie, Delegation als Schutz
+- Bsp: OS (HW), SQL (DB)
 
 ### DRY (Don’t Repeat Yourself ! )
 * wiederhole dich nicht
@@ -201,6 +247,21 @@ Leichtere Klassen, da Businesslogik zu den Daten verteilt wird
 * Gegenteil:
 * WETYAGNI (You ain’t gonna need it)du wirst es nicht brauchen
 
+### YAGNI
+- You ain’t gonna need it (Du wirst es nicht brauchen)
+- Unnötige Features erhöhen Komplexität, binden Ressourcen
+- Eigene Ideen -> schwer objektiv betrachtbar
+- Frameworks sinnvoll, wenn sie aus dem Projekt heraus entstehen, nicht wenn sie durch
+spekulatives Programmieren entstehen
+- Kommunikation zw. Entwicklung u. Kunde wichtig
+
+### Conway’s Law
+- Kommunikationsstruktur findet sich in Code wieder
+- Kommunikationsschnittstellen = Modulschnittstellen im Code
+- Müssen zum Produkt passen…
+- Bei Neuausrichtig des Produkts -> Kommunikationsstruktur anpassen
+- Beispiel: Konzernwebseiten spiegeln Org. wieder statt Bedürfnisse des Kunden
+
 ## DevOps
 
 - eine **Bewegung** mit dem Ziel **Time-To-Market** einer **Änderungseinheit** zu reduzieren, bei gleichzeitiger Gewährleistung **hoher Qualität**
@@ -210,7 +271,6 @@ Leichtere Klassen, da Businesslogik zu den Daten verteilt wird
 
 - Dev **schnell Veränderungen umsetzen**
 - Ops (Administrator) sollen **Sicherheit und Stabilität** der Systeme gewährleisten
-- ​
 
 ### Lean
 

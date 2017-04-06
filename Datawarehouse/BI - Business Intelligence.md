@@ -64,7 +64,33 @@
 
 ## Data Warehouse Architektur
 
+- Metadaten
+  - Verwaltung systemspezifischer Daten
+  - Klausur: fachliche Metadaten, technische Metadaten
+- Data Marts
+- Klausur:
+  - Type Vertrieb oder Marketing Subjektdiagramm
+  - Finanzdienstleister, Bank, Auto, Versicherung
 
+
+### OLAP Dimension
+
+- zeit, raum, produkt
+- innerer Würfel KZ(Kennzahlen)
+- Teilbereich symbolisiert aggregierte Kennzahlen
+- Aufbau der Dimensionen sind Metadaten (Klausur)
+- Würfel links unten enthält alle Teildaten
+
+### Hierarchie
+
+- Teilmengen
+- über Hierachie bestimme ich Adressat (Bundesland, Kreis, Stadt -> Landrat)
+- jedes Subjekt hat eine eigene Dimension
+- Klausur: Subjektmodell entwickeln, Dimensionsmodell ableiten, Star Schema
+
+### Entity - Relationship - Modellierung
+
+- ​
 
 # Information Supply Chain
 
