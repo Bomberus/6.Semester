@@ -48,7 +48,7 @@ konzentriert
 
 #### Warum ist es wichtig, dass sich die Sprache der Domäne in der Software befindet?
 
-Strategisches Domain Driven Design
+#### Strategisches Domain Driven Design
 
 ##### Domäne
 
@@ -187,8 +187,7 @@ machen, durch Katalog von Entwurfsmustern
 
 #### Strategien für einzigartige Identitäten
 
-#### Natürliche Schlüssel: Kursname, KFZ-Kennzeichen,
-  Personalausweisnummer
+#### Natürliche Schlüssel: Kursname, KFZ-Kennzeichen, Personalausweisnummer
   - Vorteil: aussagekräfig, keine Duplikate
   wenn global eindeutig
   - Nachteil: Fremdbestimmt (ändert sich vielleicht?), ggf. nicht global
@@ -263,7 +262,7 @@ machen, durch Katalog von Entwurfsmustern
   - Mehr Verantwortung
 
 - Vorteile
-  - Schlankere Objektgrapgen
+  - Schlankere Objektgraphen
     - Zuständigkeiten klarer getrennt
     - Aggregate bilden bzgl. TAs eine Unit of Work
     - -> Mehr Kontrolle

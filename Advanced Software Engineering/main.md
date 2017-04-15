@@ -7,5 +7,8 @@
 @import "pages/ui.md"
 @import "pages/usability.md"
 @import "pages/principles.md"
+@import "pages/devops.md"
+@import "pages/ci.md"
 @import "pages/entwurfsmuster.md"
 @import "pages/domain-driven-design.md"
+@import "pages/gui-coding.md"
