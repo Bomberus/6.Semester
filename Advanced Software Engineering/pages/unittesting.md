@@ -82,25 +82,25 @@
 - Error
   - Unerwarteter Fehler
 ### Eigenschaften guter Tests – ATRIP
-- Automatic
+#### Automatic
   - Minimale Anforderung bei der Ausführungo
   - Einfach ausführbar (1 Knopf), automatisch (kein Input), selbst-überprüfbar
   (bestanden/fehlgeschlagen)
-- Thorough (Vollständig)
+#### Thorough (Vollständig)
   - Alles Notwendig überprüfen
   - Iteratives Vorgehen (bei Fehler ergänzen)
   - VFehler klumpen: Bei Fehler auch Umgebung testen
-### Repeatable
+#### Repeatable
 - Beliebig wiederholbar -> gleiches Ergebnis
   - Plattform, Zeit, Zufall, Multithreading kritisch
 - Tests, die ohne Änderungen fehlschlagen -> Fehlerhafte Tests
 
 > Zufall muss gesteuert werden. Statt random() feste Zahl wählen.
 
-### Independent
+#### Independent
 - Keine Abhängigkeit zu anderen Tests (keine Reihenfolge)
 - Tests sollen auf Aufgabe fokussiert sein
-### Professional
+#### Professional
 - Tests sollen qualitative hochwertig sein (kein Doppelcode etc.)
 - Keine unnötigen Tests
 - Teil der Dokumentation

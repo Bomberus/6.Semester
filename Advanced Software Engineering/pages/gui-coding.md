@@ -121,7 +121,7 @@
 
 -   Programmierer erstellt Skript
 
--   Vorteil: wartbar, zsmfassen versch. Aktionen, Wiederverwendung,
+-   Vorteil: wartbar, umfasst versch. Aktionen, Wiederverwendung,
      gleiche Programmiersprache
 
 -   Nachteil: GUI bei Erstellung nicht sichtbar
@@ -131,12 +131,13 @@
 - Matrix Tests
 
   - Einsatz: Großer Datenbereich für Eingabe, Kombination versch.
- Eingaben o Ablauf: Auswahl der Parameter, Definition Parawerte -&gt;
+ Eingaben
+  - Ablauf: Auswahl der Parameter, Definition Parawerte -&gt;
  Tabelle
 
 <img src="./media/image11.jpeg" width="249" height="92" />
 
-1.  Vorteil: Viele Kombinationen, Reuktion der Redundanz
+1.  Vorteil: Viele Kombinationen, Reduktion der Redundanz
 
 1.  Nachteil: Exponentielle Laufzeit
 

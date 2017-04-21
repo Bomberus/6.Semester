@@ -3,8 +3,7 @@
 ### Definition
 
 -   Vorgehensweise: soll sicherstellen, dass
-
- o SW immer in einem auslieferbaren Zustand ist
+- SW immer in einem auslieferbaren Zustand ist
 
 1.  Und automatisiert ausgeliefert (deployed) werden kann
 
@@ -71,7 +70,7 @@
 
 -   Artefakte (Deliverables) werden in Commit-Phase genau einmal gebaut
 
--   Gleiche Deployment-Strategie u. Tools für alle Zielumgebunne
+-   Gleiche Deployment-Strategie u. Tools für alle Zielumgebungen
 
 -   Nach Deployment: Smoke-Tests
 
@@ -150,7 +149,7 @@
 
 -   Manuelle Änderungen an Produktivumgebung
 
-###Deployment-Bestpractices
+### Deployment-Bestpractices
 
 -   Automatisierter Rollback-Plan
 
